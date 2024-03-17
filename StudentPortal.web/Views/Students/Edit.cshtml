@@ -1,0 +1,46 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model StudentPortal.web.Models.Entities.Student;
+@if(Model is null)
+{
+    <div class="alert alert-danger" role="alert">
+        No Student was not found...
+    </div>
+}
+else
+{
+    <div class="container">
+        <h1 class="fs-3">Edit Student</h1>
+        <form method="post">
+            <div class="mb-3">
+                <label for="inputId" class="form-label">ID</label>
+                <input type="text" class="form-control" id="inputId" asp-for="Id" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="inputName" class="form-label">Name</label>
+                <input type="text" class="form-control" id="inputName" asp-for="Name">
+            </div>
+            <div class="mb-3">
+                <label for="inputEmail" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp"
+                       asp-for="Email">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="inputPhone" class="form-label">Phone</label>
+                <input type="number" class="form-control" id="inputPhone" asp-for="Phone">
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="Subsrcibed" asp-for="Subscribed">
+                <label class="form-check-label" for="Subsrcibed">Subsrcibed</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Edit</button>
+            <button type="submit" class="btn btn-danger ms-3" asp-controller="Students"
+            asp-action="Delete">Delete</button>
+
+        </form>
+    </div>
+}
